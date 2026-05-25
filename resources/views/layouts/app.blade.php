@@ -156,6 +156,11 @@
             color: var(--green-700);
         }
         .btn-outline:hover { background: var(--green-700); color: #fff; text-decoration: none; }
+        .btn-logout {
+            background: transparent; border: 2px solid var(--lime-400);
+            color: var(--lime-400);
+        }
+        .btn-logout:hover { background: var(--lime-400); color: var(--green-950); text-decoration: none; }
         .btn-sm { padding: .5rem 1.1rem; font-size: .85rem; border-radius: 8px; }
         .btn-lg { padding: 1rem 2.2rem; font-size: 1.05rem; border-radius: var(--radius-md); }
 
@@ -291,10 +296,11 @@
                     ({{ count(session('carrito')) }})
                 @endif
             </a>
+            <span style="color:rgba(255,255,255,.7); font-size:.88rem; margin-right:.3rem">{{ Auth::user()->name }}</span>
             <form action="{{ route('logout') }}" method="POST" style="display:inline">
                 @csrf
-                <button type="submit" class="btn btn-outline" style="margin-left:1rem">
-                    Cerrar sesion
+                <button type="submit" class="btn btn-logout btn-sm" style="margin-left:.25rem">
+                    Cerrar sesión
                 </button>
             </form>
         @else
