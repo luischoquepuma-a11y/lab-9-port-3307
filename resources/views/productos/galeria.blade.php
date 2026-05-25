@@ -4,19 +4,19 @@
  
 @section('contenido')
  
-<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:.75rem">
-    <h1 style="color:var(--primary-dk); margin:0">
-        Galeria de Productos
-        <span style="font-size:1rem; font-weight:normal; color:var(--text-light)">
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem">
+    <h1 style="color:var(--green-900); margin:0; font-size:1.75rem">
+        Galería de Productos
+        <span style="font-size:1.05rem; font-weight:normal; color:var(--text-light); margin-left:.3rem">
             ({{ $productos->count() }} productos)
         </span>
     </h1>
-    <div style="display:flex; gap:.75rem; align-items:center; flex-wrap:wrap">
+    <div style="display:flex; gap:1rem; align-items:center; flex-wrap:wrap">
         <input type="text" id="buscar" placeholder="Buscar producto…"
                onkeyup="filtrarProductos()"
-               style="padding:.5rem 1rem; border:1.5px solid var(--border); border-radius:8px; font-size:.9rem; width:220px">
+               style="padding:.6rem 1.2rem; border:1.5px solid var(--border); border-radius:var(--radius-sm); font-size:.9rem; width:240px; background:#fff; transition:all .2s">
         <select onchange="window.location = this.value ? '{{ route('productos.galeria') }}?categoria=' + this.value : '{{ route('productos.galeria') }}'"
-                style="padding:.5rem 1rem; border:1.5px solid var(--border); border-radius:8px; font-size:.9rem; background:#fff; cursor:pointer">
+                style="padding:.6rem 1.2rem; border:1.5px solid var(--border); border-radius:var(--radius-sm); font-size:.9rem; background:#fff; cursor:pointer; transition:all .2s">
             <option value="">Todas las categorías</option>
             @foreach($categorias as $cat)
                 <option value="{{ $cat->id_categoria }}" {{ request('categoria') == $cat->id_categoria ? 'selected' : '' }}>
@@ -24,9 +24,9 @@
                 </option>
             @endforeach
         </select>
-        <a href="{{ route('productos.index') }}" class="btn btn-outline">Ver como tabla</a>
+        <a href="{{ route('productos.index') }}" class="btn btn-outline btn-sm">Ver como tabla</a>
     </div>
-    <span id="contador-visibles" style="font-size:.85rem;color:var(--text-light);margin-top:.25rem;display:block"></span>
+    <span id="contador-visibles" style="font-size:.88rem;color:var(--text-light);margin-top:.25rem;display:block;width:100%;text-align:right"></span>
 </div>
  
 @if($productos->isEmpty())

@@ -16,16 +16,16 @@
         Resumen general del catalogo de productos.
     </p>
  
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.5rem">
-        <div style="background:linear-gradient(135deg,var(--primary),#388E3C); color:#fff; border-radius:var(--radius);
-                    padding:2rem 1.5rem; text-align:center; box-shadow:var(--shadow)">
-            <div style="font-size:2.5rem; font-weight:700">{{ $totalCategorias }}</div>
-            <div style="margin-top:.4rem; opacity:.85; font-size:.95rem">Categorias</div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem">
+        <div style="background:var(--green-700); color:#fff; border-radius:var(--radius-xl);
+                    padding:2.5rem 2rem; text-align:center; box-shadow:var(--shadow-lg)">
+            <div style="font-size:3rem; font-weight:800">{{ $totalCategorias }}</div>
+            <div style="margin-top:.5rem; opacity:.88; font-size:1rem; letter-spacing:.5px">Categorías</div>
         </div>
-        <div style="background:linear-gradient(135deg,var(--primary-dk),var(--primary)); color:#fff; border-radius:var(--radius);
-                    padding:2rem 1.5rem; text-align:center; box-shadow:var(--shadow)">
-            <div style="font-size:2.5rem; font-weight:700">{{ $totalProductos }}</div>
-            <div style="margin-top:.4rem; opacity:.85; font-size:.95rem">Productos</div>
+        <div style="background:var(--green-800); color:#fff; border-radius:var(--radius-xl);
+                    padding:2.5rem 2rem; text-align:center; box-shadow:var(--shadow-lg)">
+            <div style="font-size:3rem; font-weight:800">{{ $totalProductos }}</div>
+            <div style="margin-top:.5rem; opacity:.88; font-size:1rem; letter-spacing:.5px">Productos</div>
         </div>
     </div>
  

@@ -3,30 +3,30 @@
 @section('titulo', 'Mi Carrito')
  
 @section('contenido')
-<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem">
-    <h1 style="color:var(--primary-dk); margin:0">Mi Carrito de Compras</h1>
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem">
+    <h1 style="color:var(--green-900); margin:0; font-size:1.75rem">Mi Carrito de Compras</h1>
     <a href="{{ route('productos.galeria') }}" class="btn btn-outline">
         &larr; Seguir comprando
     </a>
 </div>
- 
+
 @if(empty($productos))
-    <div class="card" style="text-align:center; padding:3rem">
-        <p style="font-size:1.1rem; color:var(--text-light); margin-bottom:1.5rem">
-            Tu carrito esta vacio.
+    <div class="card" style="text-align:center; padding:3.5rem">
+        <p style="font-size:1.15rem; color:var(--text-light); margin-bottom:2rem">
+            Tu carrito está vacío.
         </p>
         <a href="{{ route('productos.galeria') }}" class="btn btn-primary btn-lg">
-            Ver galeria de productos
+            Ver galería de productos
         </a>
     </div>
 @else
-    <div style="background:var(--card-bg); border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid var(--border); padding:1rem 1.5rem; margin-bottom:1rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.5rem">
+    <div style="background:var(--card-bg); border-radius:var(--radius-md); box-shadow:var(--shadow); border:1px solid var(--border); padding:1.2rem 1.8rem; margin-bottom:1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.75rem">
         <div>
-            <strong style="color:var(--primary-dk)">Pedido de:</strong>
+            <strong style="color:var(--green-900)">Pedido de:</strong>
             <span style="color:var(--text)">{{ Auth::user()->name }}</span>
         </div>
         <div>
-            <strong style="color:var(--primary-dk)">Fecha:</strong>
+            <strong style="color:var(--green-900)">Fecha:</strong>
             <span style="color:var(--text)">{{ now()->format('d/m/Y h:i A') }}</span>
         </div>
     </div>
@@ -89,17 +89,17 @@
         </table>
  
         {{-- Resumen y acciones --}}
-        <div style="display:flex; justify-content:flex-end; margin-top:1.5rem; gap:1rem; align-items:center; flex-wrap:wrap">
+        <div style="display:flex; justify-content:flex-end; margin-top:2rem; gap:1.2rem; align-items:center; flex-wrap:wrap">
             <form action="{{ route('carrito.vaciar') }}" method="POST">
                 @csrf
-                <button class="btn btn-outline" onclick="return confirm('Vaciar el carrito?')">
-                    🗑 Vaciar carrito
+                <button class="btn btn-outline" onclick="return confirm('¿Vaciar el carrito?')">
+                    Vaciar carrito
                 </button>
             </form>
-            <div style="font-size:1.5rem; font-weight:800; color:var(--primary); background:#E8F5E9; padding:.5rem 1.2rem; border-radius:8px">
+            <div style="font-size:1.6rem; font-weight:800; color:var(--green-800); background:linear-gradient(135deg,var(--green-100),var(--green-200)); padding:.6rem 1.5rem; border-radius:var(--radius-sm); box-shadow:var(--shadow)">
                 Total: S/. {{ number_format($total, 2) }}
             </div>
-            <button class="btn btn-primary btn-lg" onclick="alert('Funcion de pago no implementada aun.')">
+            <button class="btn btn-primary btn-lg" onclick="alert('Función de pago no implementada aún.')">
                 Proceder al pago →
             </button>
         </div>

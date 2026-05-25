@@ -2,7 +2,7 @@
 @extends('layouts.app')
 @section('titulo', 'Productos')
 @section('contenido')
-    <h1 style="color:var(--primary-dk)">Productos <span style="font-size:1rem;font-weight:normal;color:var(--text-light)">({{ $productos->count() }} registros)</span></h1>
+    <h1 style="color:var(--green-900);font-size:1.75rem;margin-bottom:1.5rem">Productos <span style="font-size:1rem;font-weight:normal;color:var(--text-light)">({{ $productos->count() }} registros)</span></h1>
  
     @if($productos->isEmpty())
         <p style="color:var(--text-light)">No hay productos registrados aún.</p>
