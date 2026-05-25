@@ -7,31 +7,55 @@
     <title>Iniciar Sesión – Productos App</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
-               min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-        .login-box { background: white; border-radius: 10px; padding: 40px;
-                     width: 380px; box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
-        .login-box h1 { color: #1a73e8; font-size: 1.5rem; text-align: center; margin-bottom: 8px; }
-        .login-box .subtitle { color: #888; font-size: 0.9rem; text-align: center; margin-bottom: 28px; }
-        .form-group { margin-bottom: 18px; }
-        label { display: block; font-size: 0.85rem; color: #555; margin-bottom: 6px; font-weight: bold; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 40%, #388E3C 100%);
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+        }
+        .login-box {
+            background: white; border-radius: 14px; padding: 44px 40px;
+            width: 400px; box-shadow: 0 12px 40px rgba(27,94,32,.3);
+            border: 1px solid rgba(200,230,201,.5);
+        }
+        .login-box h1 {
+            color: #2E7D32; font-size: 1.6rem; text-align: center; margin-bottom: 4px;
+        }
+        .login-box .subtitle {
+            color: #689F63; font-size: 0.9rem; text-align: center; margin-bottom: 28px;
+        }
+        .form-group { margin-bottom: 20px; }
+        label {
+            display: block; font-size: 0.85rem; color: #2E7D32;
+            margin-bottom: 6px; font-weight: 700;
+        }
         input[type=email], input[type=password] {
-            width: 100%; padding: 10px 12px; border: 1px solid #ddd;
-            border-radius: 6px; font-size: 0.95rem; transition: border-color 0.2s; }
-        input:focus { outline: none; border-color: #1a73e8; box-shadow: 0 0 0 2px rgba(26,115,232,0.15); }
-        .input-error { border-color: #e53935 !important; }
-        .error-msg { color: #e53935; font-size: 0.8rem; margin-top: 4px; }
-        .alert { padding: 10px 14px; border-radius: 6px; margin-bottom: 18px; font-size: 0.9rem; }
-        .alert-danger { background: #fdecea; color: #c62828; border: 1px solid #ef9a9a; }
-        .alert-success { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
-        .alert-info { background: #e3f2fd; color: #1565c0; border: 1px solid #90caf9; }
-        .btn-login { width: 100%; background: #1a73e8; color: white; border: none;
-                     padding: 12px; border-radius: 6px; font-size: 1rem;
-                     cursor: pointer; font-weight: bold; margin-top: 8px; }
-        .btn-login:hover { background: #1558b0; }
-        .hint { background: #f8f9fa; border-radius: 6px; padding: 12px; margin-top: 20px;
-                font-size: 0.82rem; color: #666; border-left: 3px solid #1a73e8; }
-        .hint strong { color: #1a73e8; }
+            width: 100%; padding: 11px 14px; border: 1.5px solid #C8E6C9;
+            border-radius: 8px; font-size: 0.95rem; transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        input:focus {
+            outline: none; border-color: #2E7D32;
+            box-shadow: 0 0 0 3px rgba(46,125,50,.15);
+        }
+        .input-error { border-color: #C62828 !important; }
+        .input-error:focus { box-shadow: 0 0 0 3px rgba(198,40,40,.15) !important; }
+        .error-msg { color: #C62828; font-size: 0.8rem; margin-top: 4px; }
+        .alert { padding: 12px 14px; border-radius: 8px; margin-bottom: 18px; font-size: 0.9rem; }
+        .alert-danger { background: #FFEBEE; color: #B71C1C; border: 1px solid #EF9A9A; }
+        .alert-success { background: #E8F5E9; color: #1B5E20; border: 1px solid #A5D6A7; }
+        .alert-info { background: #E3F2FD; color: #0D47A1; border: 1px solid #90CAF9; }
+        .btn-login {
+            width: 100%; background: #2E7D32; color: white; border: none;
+            padding: 14px; border-radius: 8px; font-size: 1.05rem;
+            cursor: pointer; font-weight: 700; margin-top: 8px;
+            transition: background .25s, transform .2s;
+        }
+        .btn-login:hover { background: #1B5E20; transform: translateY(-2px); }
+        .btn-login:active { transform: translateY(0); }
+        .hint {
+            background: #F1F8E9; border-radius: 8px; padding: 14px; margin-top: 24px;
+            font-size: 0.82rem; color: #558B2F; border-left: 4px solid #2E7D32;
+        }
+        .hint strong { color: #1B5E20; }
     </style>
 </head>
 <body>

@@ -4,19 +4,33 @@ namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
 use App\Models\Producto;
- 
+use App\Models\Categoria;
+
 class ProductoController extends Controller
 {
-    /**
-     * Muestra la lista de todos los productos con su categoría.
-     */
     public function index()
     {
-        // Obtiene todos los productos e incluye su categoría relacionada
         $productos = Producto::with('categoria')->get();
- 
-        // Retorna la vista y le pasa la variable $productos
         return view('productos.index', compact('productos'));
+    }
+
+    public function galeria()
+    {
+        $categoriaId = request('categoria');
+
+        $productos = Producto::with('categoria')
+            ->when($categoriaId, fn($q) => $q->where('id_categoria', $categoriaId))
+            ->get();
+
+        $categorias = Categoria::all();
+
+        return view('productos.galeria', compact('productos', 'categorias'));
+    }
+
+    public function show($id)
+    {
+        $producto = Producto::with('categoria')->findOrFail($id);
+        return view('productos.show', compact('producto'));
     }
 }
 

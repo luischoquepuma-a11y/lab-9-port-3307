@@ -3,8 +3,8 @@
 @section('titulo', $producto->nombre)
  
 @section('contenido')
-<a href="{{ route('productos.galeria') }}" class="btn btn-outline btn-sm"
-   style="margin-bottom:1.5rem; display:inline-block">&larr; Volver a la galeria</a>
+<a href="{{ route('productos.galeria') }}" class="btn btn-outline"
+   style="margin-bottom:1.5rem">&larr; Volver a la galeria</a>
  
 <div class="card" style="display:flex; gap:2rem; flex-wrap:wrap">
  
@@ -33,10 +33,10 @@
                 <td>{{ $producto->categoria->descripcion ?? 'Sin categoria' }}</td></tr>
         </table>
  
-        <div style="margin-top:1.5rem">
+        <div style="margin-top:2rem">
             <form action="{{ route('carrito.agregar', $producto->id_producto) }}" method="POST">
                 @csrf
-                <button type="submit" class="btn btn-success">Agregar al carrito</button>
+                <button type="submit" class="btn btn-success btn-lg">Agregar al carrito</button>
             </form>
         </div>
     </div>

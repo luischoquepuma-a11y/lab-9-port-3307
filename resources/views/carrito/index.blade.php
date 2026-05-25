@@ -5,7 +5,7 @@
 @section('contenido')
 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem">
     <h1 style="color:var(--primary-dk); margin:0">Mi Carrito de Compras</h1>
-    <a href="{{ route('productos.galeria') }}" class="btn btn-outline btn-sm">
+    <a href="{{ route('productos.galeria') }}" class="btn btn-outline">
         &larr; Seguir comprando
     </a>
 </div>
@@ -15,11 +15,22 @@
         <p style="font-size:1.1rem; color:var(--text-light); margin-bottom:1.5rem">
             Tu carrito esta vacio.
         </p>
-        <a href="{{ route('productos.galeria') }}" class="btn btn-primary">
+        <a href="{{ route('productos.galeria') }}" class="btn btn-primary btn-lg">
             Ver galeria de productos
         </a>
     </div>
 @else
+    <div style="background:var(--card-bg); border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid var(--border); padding:1rem 1.5rem; margin-bottom:1rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.5rem">
+        <div>
+            <strong style="color:var(--primary-dk)">Pedido de:</strong>
+            <span style="color:var(--text)">{{ Auth::user()->name }}</span>
+        </div>
+        <div>
+            <strong style="color:var(--primary-dk)">Fecha:</strong>
+            <span style="color:var(--text)">{{ now()->format('d/m/Y h:i A') }}</span>
+        </div>
+    </div>
+
     <div class="card">
         <table>
             <thead>
@@ -78,18 +89,18 @@
         </table>
  
         {{-- Resumen y acciones --}}
-        <div style="display:flex; justify-content:flex-end; margin-top:1.5rem; gap:1rem; align-items:center">
+        <div style="display:flex; justify-content:flex-end; margin-top:1.5rem; gap:1rem; align-items:center; flex-wrap:wrap">
             <form action="{{ route('carrito.vaciar') }}" method="POST">
                 @csrf
                 <button class="btn btn-outline" onclick="return confirm('Vaciar el carrito?')">
-                    Vaciar carrito
+                    🗑 Vaciar carrito
                 </button>
             </form>
-            <div style="font-size:1.3rem; font-weight:700; color:var(--primary)">
+            <div style="font-size:1.5rem; font-weight:800; color:var(--primary); background:#E8F5E9; padding:.5rem 1.2rem; border-radius:8px">
                 Total: S/. {{ number_format($total, 2) }}
             </div>
-            <button class="btn btn-primary" onclick="alert('Funcion de pago no implementada aun.')">
-                Proceder al pago
+            <button class="btn btn-primary btn-lg" onclick="alert('Funcion de pago no implementada aun.')">
+                Proceder al pago →
             </button>
         </div>
     </div>
